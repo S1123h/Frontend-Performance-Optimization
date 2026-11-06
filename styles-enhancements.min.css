@@ -1,0 +1,7 @@
+/* Non-critical enhancements loaded asynchronously.
+   This file contains styles that improve appearance after first paint
+   but are not required to render the primary content. */
+.card{transition:transform .2s ease,box-shadow .2s ease}
+.card:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(23,32,51,.10)}
+.featured{background:linear-gradient(180deg,#fff,#f0fdfa)}
+@media(min-width:821px){.feature-grid{grid-template-columns:repeat(4,1fr)}}

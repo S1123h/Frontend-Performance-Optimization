@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Performance-optimized product landing page with lazy-loaded images, deferred JavaScript, minified assets, and efficient caching guidance." />
+  <title>Swift — Fast, lightweight product landing page</title>
+
+  <!-- Preconnect only to origins that will actually be used -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://images.unsplash.com" />
+
+  <!-- Critical CSS is small and render-blocking by design.
+       Non-critical CSS is loaded asynchronously to reduce render blocking. -->
+  <link rel="stylesheet" href="styles.min.css" />
+  <link rel="preload" href="styles-enhancements.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="styles-enhancements.min.css" /></noscript>
+
+  <!-- Favicon is inlined as a data URI to avoid an extra network request -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230f766e'/%3E%3Ctext x='16' y='22' font-family='Arial' font-size='17' font-weight='bold' fill='white' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#main" class="brand">
+        <span class="brand-badge" aria-hidden="true">S</span>
+        Swift
+      </a>
+      <nav aria-label="Primary">
+        <ul class="nav-list">
+          <li><a href="#features">Features</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- Hero uses no large hero image: CSS gradients provide visual interest
+         without adding image payload or layout shift. -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container">
+        <p class="eyebrow">Performance-first web experience</p>
+        <h1 id="hero-title">A faster landing page, by design</h1>
+        <p class="lead">
+          Swift demonstrates practical front-end optimizations: minimal
+          render-blocking resources, deferred scripts, responsive lazy-loaded
+          images, and efficient caching.
+        </p>
+        <div class="actions">
+          <a href="#pricing" class="button">View pricing</a>
+          <a href="#features" class="button button-secondary">Explore features</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="features" class="features" aria-labelledby="features-title">
+      <div class="container">
+        <h2 id="features-title">Built for speed</h2>
+        <div class="feature-grid">
+          <article class="card">
+            <h3>Deferred JavaScript</h3>
+            <p>Scripts load after HTML parsing, keeping the first paint fast.</p>
+          </article>
+          <article class="card">
+            <h3>Lazy images</h3>
+            <p>Below-the-fold images load only when users approach them.</p>
+          </article>
+          <article class="card">
+            <h3>Responsive images</h3>
+            <p>Modern formats and sized sources avoid unnecessary downloads.</p>
+          </article>
+          <article class="card">
+            <h3>Efficient caching</h3>
+            <p>Versioned filenames support long-term browser caching.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Image gallery demonstrates lazy loading and responsive sources.
+         width/height prevent cumulative layout shift. -->
+    <section id="gallery" class="gallery" aria-labelledby="gallery-title">
+      <div class="container">
+        <h2 id="gallery-title">Optimized image gallery</h2>
+        <p class="section-text">
+          Images below the fold use <code>loading="lazy"</code>,
+          <code>decoding="async"</code>, explicit dimensions, responsive
+          <code>srcset</code>, and modern WebP sources.
+        </p>
+
+        <div class="image-grid">
+          <figure>
+            <img
+              src="images/gallery-1-640.webp"
+              srcset="images/gallery-1-480.webp 480w, images/gallery-1-640.webp 640w, images/gallery-1-1024.webp 1024w"
+              sizes="(max-width: 700px) 92vw, 420px"
+              width="640" height="427"
+              alt="Team members collaborating around a laptop in a bright office"
+              loading="lazy"
+              decoding="async"
+              fetchpriority="low"
+            />
+            <figcaption>Collaborative product planning</figcaption>
+          </figure>
+
+          <figure>
+            <img
+              src="images/gallery-2-640.webp"
+              srcset="images/gallery-2-480.webp 480w, images/gallery-2-640.webp 640w, images/gallery-2-1024.webp 1024w"
+              sizes="(max-width: 700px) 92vw, 420px"
+              width="640" height="427"
+              alt="Designer reviewing a mobile interface on a tablet"
+              loading="lazy"
+              decoding="async"
+              fetchpriority="low"
+            />
+            <figcaption>Mobile-first interface review</figcaption>
+          </figure>
+
+          <figure>
+            <img
+              src="images/gallery-3-640.webp"
+              srcset="images/gallery-3-480.webp 480w, images/gallery-3-640.webp 640w, images/gallery-3-1024.webp 1024w"
+              sizes="(max-width: 700px) 92vw, 420px"
+              width="640" height="427"
+              alt="Developer writing code on a desktop computer"
+              loading="lazy"
+              decoding="async"
+              fetchpriority="low"
+            />
+            <figcaption>Performance-focused development</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section id="pricing" class="pricing" aria-labelledby="pricing-title">
+      <div class="container">
+        <h2 id="pricing-title">Simple pricing</h2>
+        <div class="pricing-grid">
+          <article class="card">
+            <h3>Starter</h3>
+            <p class="price">$0<span> / month</span></p>
+            <p>Perfect for personal projects and experiments.</p>
+          </article>
+          <article class="card featured">
+            <h3>Pro</h3>
+            <p class="price">$12<span> / month</span></p>
+            <p>Advanced components, analytics, and priority support.</p>
+          </article>
+          <article class="card">
+            <h3>Team</h3>
+            <p class="price">$29<span> / month</span></p>
+            <p>Shared workspaces and collaboration for growing teams.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 Swift. Optimized for performance and accessibility.</p>
+    </div>
+  </footer>
+
+  <!-- JavaScript is deferred: it does not block HTML parsing or first paint. -->
+  <script src="script.min.js" defer></script>
+</body>
+</html>
